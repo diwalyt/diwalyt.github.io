@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"diwalyt.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="2021年，计划尝试下开源的开发模式，会做几个小项目。 大部分应该是嵌入式开发类项目，以智能硬件设计为主。当然为了支持智能硬件运行也会有些PC端和移动的小应用。 比如这个这个blog ，就是因为做开发记录而存在的。 那么就这样了。  PS：简单记录下这个Blog搭建的过程。准备  GitHub 账号   本地的nodejs运行环境   本地 Git 环境   Visual studio code">
+<meta property="og:type" content="article">
+<meta property="og:title" content="写在开始... ...">
+<meta property="og:url" content="https://diwalyt.github.io/2021/01/15/hello-world/index.html">
+<meta property="og:site_name" content="Diwalyt&#39;s GitHub">
+<meta property="og:description" content="2021年，计划尝试下开源的开发模式，会做几个小项目。 大部分应该是嵌入式开发类项目，以智能硬件设计为主。当然为了支持智能硬件运行也会有些PC端和移动的小应用。 比如这个这个blog ，就是因为做开发记录而存在的。 那么就这样了。  PS：简单记录下这个Blog搭建的过程。准备  GitHub 账号   本地的nodejs运行环境   本地 Git 环境   Visual studio code">
+<meta property="og:locale">
+<meta property="article:published_time" content="2021-01-15T13:17:30.835Z">
+<meta property="article:modified_time" content="2021-01-16T12:56:55.010Z">
+<meta property="article:author" content="diwalyt">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://diwalyt.github.io/2021/01/15/hello-world/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh'
+  };
+</script>
+
+  <title>写在开始... ... | Diwalyt's GitHub</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Diwalyt's GitHub</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="https://diwalyt.github.io/2021/01/15/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="diwalyt">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Diwalyt's GitHub">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          写在开始... ...
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-01-15 21:17:30" itemprop="dateCreated datePublished" datetime="2021-01-15T21:17:30+08:00">2021-01-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-01-16 20:56:55" itemprop="dateModified" datetime="2021-01-16T20:56:55+08:00">2021-01-16</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>2021年，计划尝试下开源的开发模式，会做几个小项目。</p>
+<p>大部分应该是嵌入式开发类项目，以智能硬件设计为主。当然为了支持智能硬件运行也会有些PC端和移动的小应用。</p>
+<p>比如这个<a href="https://diwalyt.github.io/">这个blog</a> ，就是因为做开发记录而存在的。</p>
+<p>那么就这样了。</p>
+<hr>
+<h2 id="PS：简单记录下这个Blog搭建的过程。"><a href="#PS：简单记录下这个Blog搭建的过程。" class="headerlink" title="PS：简单记录下这个Blog搭建的过程。"></a>PS：简单记录下这个Blog搭建的过程。</h2><h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/">GitHub</a> 账号  </li>
+<li>本地的nodejs运行环境  </li>
+<li>本地 Git 环境  </li>
+<li>Visual studio code</li>
+</ul>
+</blockquote>
+<p>搭建步骤：</p>
+<h3 id="1-安装使用Hexo"><a href="#1-安装使用Hexo" class="headerlink" title="1. 安装使用Hexo"></a>1. 安装使用Hexo</h3><p>首先安装hexo命令行工具，在命令行窗口输入以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli </span><br></pre></td></tr></table></figure>
+<p>然后新建一个本地blog工程目录，例如myBlog，在命令行进入该目录执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#初始化hexo 工程</span></span><br><span class="line">hexo init </span><br><span class="line"></span><br><span class="line"><span class="comment">#安装发布插件</span></span><br><span class="line">npm install hexo-deployer-git --save </span><br><span class="line"></span><br><span class="line"><span class="comment">#安装 next 主题（不是必须，也可以根据个人喜好安装其他主题）</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/theme-next/hexo-theme-next themes/next </span><br></pre></td></tr></table></figure>
+<p>之后修改工程目录下的 _config.yml 文件。<br>前面是站点的基本信息。最后是deploy项，参考设置：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/one-command-deployment</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/&#x27;你的用户名&#x27;/&#x27;你的用户名&#x27;.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span></span><br></pre></td></tr></table></figure>
+<p>接下执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g  <span class="comment"># hexo generate的简写</span></span><br><span class="line">hexo s <span class="comment"># hexo server的简写</span></span><br></pre></td></tr></table></figure>
+<p>在浏览器上输入 <a target="_blank" rel="noopener" href="http://localhost:4000/">localhost:4000</a> 浏览自己的blog。</p>
+<h3 id="2-创建静态托管仓库"><a href="#2-创建静态托管仓库" class="headerlink" title="2. 创建静态托管仓库"></a>2. 创建静态托管仓库</h3><p>为了能在web上访问我们的blog，还需要在github上创建静态托管。<br>这里配置一下git免密访问。</p>
+<p><strong>配置git</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;你的GitHub用户名&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;你的GitHub注册邮箱&quot;</span></span><br></pre></td></tr></table></figure>
+<p><strong>配置ssh密钥</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;你的GitHub注册邮箱&quot;</span></span><br></pre></td></tr></table></figure>
+<p>一般不需要设置密码，直接回车。<br>如果是win10 用户，使用的gitbash。 则密钥存储在 C:\user\登陆账户.shh\目录下， 将id_rsa.pub中的内容拷贝出来，粘贴到 github setting的 SSH and GPG keys 页中。</p>
+<p>创建静态托管仓库<br>在自己的Github账号下创建一个以 用户名.github.io 命名的仓库。</p>
+<p><strong>发布</strong></p>
+<p>在blog工程目录下，执行下面命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d <span class="comment"># hexo deploy 的缩写</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-创建新的blog"><a href="#3-创建新的blog" class="headerlink" title="3. 创建新的blog"></a>3. 创建新的blog</h3><p>hexo默认有一篇 hello_wolrd 的blog。</p>
+<p>如果要创建新的blog，只需要执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo n new_blog_name</span><br></pre></td></tr></table></figure>
+<p>hexo 会在 /source/_posts/目录下创建 new_blog_name.md的markdown文件，使用visual studio code 编辑好自己的内容，然后再次执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g  </span><br><span class="line">hexo s </span><br></pre></td></tr></table></figure>
+<p>本地预览后，要发布只需执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d <span class="comment"># hexo deploy 的缩写</span></span><br></pre></td></tr></table></figure>
+<p>bingo，一个自己的blog就这样完成了。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#PS%EF%BC%9A%E7%AE%80%E5%8D%95%E8%AE%B0%E5%BD%95%E4%B8%8B%E8%BF%99%E4%B8%AABlog%E6%90%AD%E5%BB%BA%E7%9A%84%E8%BF%87%E7%A8%8B%E3%80%82"><span class="nav-number">1.</span> <span class="nav-text">PS：简单记录下这个Blog搭建的过程。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%86%E5%A4%87"><span class="nav-number">1.1.</span> <span class="nav-text">准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8Hexo"><span class="nav-number">1.2.</span> <span class="nav-text">1. 安装使用Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%88%9B%E5%BB%BA%E9%9D%99%E6%80%81%E6%89%98%E7%AE%A1%E4%BB%93%E5%BA%93"><span class="nav-number">1.3.</span> <span class="nav-text">2. 创建静态托管仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%88%9B%E5%BB%BA%E6%96%B0%E7%9A%84blog"><span class="nav-number">1.4.</span> <span class="nav-text">3. 创建新的blog</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">diwalyt</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/diwalyt" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;diwalyt" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:hui.dang@noolin.com" title="E-Mail → mailto:hui.dang@noolin.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">diwalyt</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
